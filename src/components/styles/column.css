@@ -1,0 +1,16 @@
+.lane {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  height: 100vh;
+  width: 100%;
+  overflow-x: hidden;
+}
+.lane::-webkit-scrollbar {
+  display: none;
+}
+
+.laneDroppable {
+  background-color: rgba(0, 0, 0, 0.1);
+  transition: background-color 300ms ease;
+}
