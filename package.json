@@ -1,9 +1,10 @@
 {
   "name": "kanban-board-react",
-  "version": "1.0.22",
+  "version": "1.0.23",
   "description": "A simple kanban board for React with zero dependencies",
   "license": "MIT",
   "scripts": {
+    "watchbuild": "watch 'yarn build' --filter='watchfilter.js'",
     "build": "yarn build:esm && yarn build:cjs",
     "build:esm": "tsc",
     "build:cjs": "tsc --module commonjs --outDir lib/cjs"
@@ -16,7 +17,8 @@
     "@types/react-dom": "^18.0.6",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
-    "typescript": "^4.8.4"
+    "typescript": "^4.8.4",
+    "watch": "^1.0.2"
   },
   "peerDependencies": {
     "@types/react": "^18.0.21",
