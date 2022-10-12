@@ -63,11 +63,12 @@ const Task = ({
 				taskX + taskWidth / 2 > lane.x &&
 				taskX + taskWidth / 2 < lane.x + lane.width
 			) {
+				collisionResult.current = { task: task, columnDataKey: key };
+
 				if (key === task.dataKey) {
 					setCollisions({});
 					return;
 				}
-				collisionResult.current = { task: task, columnDataKey: key };
 				collisions[key] = true;
 				setCollisions(collisions);
 			}
