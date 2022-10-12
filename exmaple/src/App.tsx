@@ -19,7 +19,7 @@ const columnsData: any[] = [
 function App() {
 	const [items, setItems] = useState<any[]>(tasksData);
 
-	const updateTask = (result: any) => {
+	const updateTask = (result: { task: any; columnDataKey: string }) => {
 		const index = items.findIndex((item) => item.id === result.task.id);
 		items[index].dataKey = result.columnDataKey;
 		const newArray = [...items];
