@@ -1,50 +1,54 @@
 {
-  "name": "kanban-board-react",
-  "version": "1.0.30",
-  "description": "A simple kanban board for React with zero dependencies",
-  "license": "MIT",
-  "repository": {
-    "type": "git",
-    "url": "https://github.com/thorep/kanban-board-react"
-  },
-  "scripts": {
-    "watchbuild": "watch 'yarn build' --filter='watchfilter.js'",
-    "build": "yarn build:esm && yarn build:cjs",
-    "build:esm": "tsc",
-    "build:cjs": "tsc --module commonjs --outDir lib/cjs"
-  },
-  "main": "./lib/cjs/index.js",
-  "module": "./lib/esm/index.js",
-  "types": "./lib/esm/index.d.ts",
-  "devDependencies": {
-    "@types/react": "^18.0.21",
-    "@types/react-dom": "^18.0.6",
-    "@typescript-eslint/eslint-plugin": "^5.40.0",
-    "@typescript-eslint/parser": "^5.40.0",
-    "eslint": "^8.25.0",
-    "eslint-plugin-react": "^7.31.10",
-    "react": "^18.2.0",
-    "react-dom": "^18.2.0",
-    "typescript": "^4.8.4",
-    "watch": "^1.0.2"
-  },
-  "peerDependencies": {
-    "@types/react": "^18.0.21",
-    "@types/react-dom": "^18.0.6",
-    "react": "^18.2.0",
-    "react-dom": "^18.2.0",
-    "typescript": "^4.8.4"
-  },
-  "files": [
-    "dist",
-    "LICENSE",
-    "README.md"
-  ],
-  "keywords": [
-    "kanban",
-    "drag",
-    "drop",
-    "kanban board",
-    "drag and drop"
-  ]
+	"name": "kanban-board-react",
+	"version": "1.0.31",
+	"description": "A simple kanban board for React with zero dependencies",
+	"license": "MIT",
+	"repository": {
+		"type": "git",
+		"url": "https://github.com/thorep/kanban-board-react"
+	},
+	"scripts": {
+		"watchbuild": "watch 'yarn build' --filter='watchfilter.js'",
+		"build": "yarn build:esm && yarn build:cjs",
+		"build:esm": "tsc",
+		"build:cjs": "tsc --module commonjs --outDir lib/cjs"
+	},
+	"main": "./lib/cjs/index.js",
+	"module": "./lib/esm/index.js",
+	"types": "./lib/esm/index.d.ts",
+	"devDependencies": {
+		"@types/react": "^18.0.21",
+		"@types/react-dom": "^18.0.6",
+		"@typescript-eslint/eslint-plugin": "^5.40.0",
+		"@typescript-eslint/parser": "^5.40.0",
+		"eslint": "^8.25.0",
+		"eslint-plugin-react": "^7.31.10",
+		"react": "^18.2.0",
+		"react-dom": "^18.2.0",
+		"typescript": "^4.8.4",
+		"watch": "^1.0.2"
+	},
+	"peerDependencies": {
+		"@types/react": "^18.0.21",
+		"@types/react-dom": "^18.0.6",
+		"react": "^18.2.0",
+		"react-dom": "^18.2.0",
+		"typescript": "^4.8.4"
+	},
+	"files": [
+		"dist",
+		"LICENSE",
+		"README.md"
+	],
+	"keywords": [
+		"kanban",
+		"drag",
+		"drop",
+		"kanban board",
+		"drag and drop",
+		"agile",
+		"scrum",
+		"kanban app",
+		"task management"
+	]
 }
