@@ -1,70 +1,40 @@
-// import { RefObject } from "react";
-
-import React, { RefObject } from "react";
-
-export interface IKanbanProps {
-	style?: IStyles;
-	tasks: ITask[];
-	updateTask: TUpdateTask;
-	columns: IColumn[];
-	taskRender: ITaskRender;
-}
-export interface IColumn {
-	name: string;
-	dataKey: string;
-}
-
 export interface ITask {
-	dataKey: string;
-	id: number;
-	[key: string]: unknown;
+	task: any;
+	children: React.ReactNode;
 }
 
-export interface IStyles {
-	onDragOver: React.CSSProperties;
-	column: React.CSSProperties;
-}
-
-export interface IColumnProps {
+export interface IContext {
+	lanes: TLanes;
+	taskArray: TTask[];
+	collisions: any;
+	setCollisions?: any;
 	updateTask: TUpdateTask;
-	onTopOfColumnStyle: React.CSSProperties;
-	column: IColumn;
-	tasks: ITask[];
-	lanes: React.MutableRefObject<TLanes>;
-	setCollisions: React.Dispatch<React.SetStateAction<ICollisions>>;
-	collisions: TCollisions;
-	taskRender: ITaskRender;
-	laneStyle: React.CSSProperties;
 }
 
-export interface dimensions {
+type TLanes = Map<string, TDimensions>;
+
+type TUpdateTask = (data: { task: any; laneDataKey: string }) => void;
+
+type TDimensions = {
 	x: number;
 	y: number;
 	width: number;
 	height: number;
-}
-
-export interface ITaskRender {
-	(task: ITask): JSX.Element;
-}
-
-export interface ICollisions {
-	[key: string]: boolean;
-}
-
-export interface ITaskProps {
-	column: IColumn;
-	lanes: RefObject<TLanes>;
-	task: ITask;
-	updateTask: TUpdateTask;
-	setCollisions: React.Dispatch<React.SetStateAction<ICollisions>>;
-	children: JSX.Element;
-}
-
-export type TCollisions = {
-	[key: string]: boolean;
 };
 
-type TUpdateTask = (data: { task: ITask; columnDataKey: string }) => void;
-
-export type TLanes = Map<string, dimensions>;
+type TTask = {
+	dataKey: string;
+	[key: string]: any;
+};
+export interface ILaneProps {
+	style: React.CSSProperties;
+	onDragOverStyle: React.CSSProperties;
+	title: string;
+	dataKey: string;
+	children: any;
+}
+export interface IBoardProps {
+	tasks: any[];
+	updateTask: any;
+	children: React.ReactNode | React.ReactNode[];
+}
