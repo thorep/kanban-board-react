@@ -1,4 +1,6 @@
-export interface ITask {
+import React from "react";
+
+export interface ITaskProps {
 	task: any;
 	children: React.ReactNode;
 }
@@ -22,7 +24,7 @@ type TDimensions = {
 	height: number;
 };
 
-type TTask = {
+export type TTask = {
 	dataKey: string;
 	[key: string]: any;
 };

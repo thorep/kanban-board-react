@@ -6,16 +6,16 @@ import React, {
 	useState,
 } from "react";
 import BoardContext from "./BoardContext";
-import { IContext, ITask } from "./types";
+import { IContext, ITaskProps, TTask } from "./types";
 
-const Task = ({ task, children }: ITask) => {
+const Task = ({ task, children }: ITaskProps) => {
 	const { lanes, setCollisions, updateTask } = useContext(
 		BoardContext
 	) as IContext;
 	const diffXY = useRef<{ x: number; y: number }>({ x: 0, y: 0 });
 	const [style, setStyle] = useState<React.CSSProperties>({});
 	const [taskDimensions] = useState({ width: 0, height: 0 });
-	const collisionResult = useRef<{ task: ITask; laneDataKey: string }>();
+	const collisionResult = useRef<{ task: TTask; laneDataKey: string }>();
 	const ref = useRef<HTMLDivElement>(null);
 
 	const onMouseMove = useCallback((e: MouseEvent) => {
@@ -32,7 +32,9 @@ const Task = ({ task, children }: ITask) => {
 	}, []);
 
 	const onMouseUp = useCallback(() => {
+		console.log("On mouse up");
 		if (!collisionResult.current) return;
+		console.log("After");
 		updateTask(collisionResult.current);
 		setStyle({});
 		setCollisions({});
@@ -49,7 +51,7 @@ const Task = ({ task, children }: ITask) => {
 	}, []);
 
 	const checkForCollision = (taskX: number) => {
-		if (!ref.current) return;
+		// if (!ref.current) return;
 		const collisions = {};
 		lanes.forEach((lane, key) => {
 			if (!ref.current) return;
@@ -80,7 +82,7 @@ const Task = ({ task, children }: ITask) => {
 		if (!ref.current) return;
 		taskDimensions.height = ref.current.offsetHeight;
 		taskDimensions.width = ref.current.offsetWidth;
-	}, []);
+	}, [ref.current]);
 
 	return (
 		<div onMouseDown={onMouseDown} ref={ref} style={style}>
@@ -89,4 +91,4 @@ const Task = ({ task, children }: ITask) => {
 	);
 };
 
-export default Task;
+export default React.memo(Task);

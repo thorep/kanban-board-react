@@ -11,12 +11,12 @@ import { IBoardProps } from "./types";
 const Board = ({ tasks, updateTask, children }: IBoardProps) => {
 	const childrenArray = Children.toArray(children);
 	const [collisions, setCollisions] = useState({});
-
+	const [lanes] = useState(new Map());
 	return (
 		<BoardContext.Provider
 			value={{
 				updateTask: updateTask,
-				lanes: new Map(),
+				lanes: lanes,
 				taskArray: tasks,
 				collisions: collisions,
 				setCollisions: setCollisions,
@@ -24,7 +24,7 @@ const Board = ({ tasks, updateTask, children }: IBoardProps) => {
 		>
 			{Children.map(childrenArray, (child: ReactNode) => {
 				if (isValidElement(child)) {
-					return cloneElement(child, {});
+					return cloneElement(child);
 				}
 				return null;
 			})}
@@ -32,4 +32,4 @@ const Board = ({ tasks, updateTask, children }: IBoardProps) => {
 	);
 };
 
-export default Board;
+export default React.memo(Board);

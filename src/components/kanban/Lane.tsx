@@ -2,7 +2,7 @@ import React, { useContext, useEffect, useRef } from "react";
 import { getPosition } from "../../utils/getPositions";
 import BoardContext from "./BoardContext";
 import Task2 from "./Task";
-import { IContext, ILaneProps } from "./types";
+import { IContext, ILaneProps, TTask } from "./types";
 
 const Lane = ({
 	style,
@@ -17,7 +17,7 @@ const Lane = ({
 		const dimensions = getPosition(ref);
 		lanes.set(dataKey, dimensions);
 	}, []);
-
+	console.log(dataKey);
 	return (
 		<div
 			ref={ref}
@@ -30,7 +30,7 @@ const Lane = ({
 
 			{taskArray
 				.filter((task) => task.dataKey === dataKey)
-				.map((task: any) => {
+				.map((task: TTask) => {
 					return (
 						<Task2 key={task.id} task={task}>
 							{children(task)}
@@ -41,4 +41,4 @@ const Lane = ({
 	);
 };
 
-export default Lane;
+export default React.memo(Lane);
