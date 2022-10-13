@@ -1,6 +1,6 @@
 {
 	"name": "kanban-board-react",
-	"version": "1.0.39",
+	"version": "1.0.40",
 	"description": "A simple kanban board for React with zero dependencies",
 	"license": "MIT",
 	"repository": {
