@@ -1,7 +1,7 @@
 import React from "react";
 
 export interface ITaskProps {
-	task: any;
+	task: TTask;
 	children: React.ReactNode;
 }
 
