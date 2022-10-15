@@ -1,6 +1,8 @@
 # Kanban Board React
 A simple package for creating lanes and tasks. Tasks can be dragged and dropped into lanes. The package uses zero dependencies.
 
+If you experience any problems, please open an issue here: https://github.com/thorep/kanban-board-react/issues
+
 ## Usage
 
 ```javascript

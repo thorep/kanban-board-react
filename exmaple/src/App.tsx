@@ -2,7 +2,14 @@ import { Board, Lane } from "kanban-board-react";
 import React, { useState } from "react";
 import "./App.css";
 
-const tasksData: any[] = [
+interface Task {
+	someData: string;
+	someData2: string;
+	dataKey: string;
+	id: number;
+}
+
+const tasksData: Task[] = [
 	{ someData: "test", someData2: "test", dataKey: "todo", id: 1 },
 	{ someData: "test", someData2: "test", dataKey: "complete", id: 2 },
 	{ someData: "test", someData2: "test", dataKey: "doing", id: 3 },
@@ -19,13 +26,13 @@ function App() {
 		const newArray = [...items];
 		setItems(newArray);
 	};
+
 	return (
 		<div style={{ marginTop: "10px" }}>
 			<Board tasks={items} updateTask={updateTask}>
 				<div style={boardStyle}>
 					<Lane
 						style={laneStyle}
-						id={1}
 						title={"Todo"}
 						dataKey={"todo"}
 						onDragOverStyle={onDragOverStyle}
@@ -36,7 +43,6 @@ function App() {
 					</Lane>
 					<Lane
 						style={laneStyle}
-						id={1}
 						title={"Doing"}
 						dataKey={"doing"}
 						onDragOverStyle={onDragOverStyle}
@@ -47,7 +53,6 @@ function App() {
 					</Lane>
 					<Lane
 						style={laneStyle}
-						id={1}
 						title={"QA"}
 						dataKey={"qa"}
 						onDragOverStyle={onDragOverStyle}
@@ -58,7 +63,6 @@ function App() {
 					</Lane>
 					<Lane
 						style={laneStyle}
-						id={1}
 						title={"Complete"}
 						dataKey={"complete"}
 						onDragOverStyle={onDragOverStyle}

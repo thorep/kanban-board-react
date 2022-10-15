@@ -36,7 +36,7 @@ export interface ILaneProps {
 	children: any;
 }
 export interface IBoardProps {
-	tasks: any[];
+	tasks: TTask[];
 	updateTask: any;
 	children: React.ReactNode | React.ReactNode[];
 }
